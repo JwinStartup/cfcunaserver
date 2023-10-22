@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.MONGODB_URL, {
+  .connect("mongodb+srv://akoujeanpaul:jupy0798720866@cluster0.fibhleg.mongodb.net/CFCFUNA", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
