@@ -25,17 +25,17 @@ const faire = async (req, res, next) => {
   }
 };
 
-/*const lister = async (req, res, next) => {
+const lister = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await User.find();
+    const liste = await Preinscription.find();
     console.log(liste);
     res.json(liste);
   } catch (error) {
     res.json(error);
   }
 };
-
+/*
 const connexion = async (req, res, next) => {
   try {
     const localStorage = new LocalStorage("./scratch");
@@ -76,4 +76,4 @@ const userById = async (req, res, next) => {
   }
 };
 */
-module.exports = { faire };
+module.exports = { faire,lister };

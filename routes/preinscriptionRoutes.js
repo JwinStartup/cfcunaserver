@@ -6,11 +6,11 @@ const {
     faire,
   //connexion,
  // userById,
-  //lister,
+  lister,
 } = require("../controllers/preinscriptionController.js");
 
 router.post("/faire", faire);
-//router.get("/lister", lister);
+router.get("/lister", lister);
 //router.post("/connexion", connexion);
 //router.get("/userById/:id", userById);
 
