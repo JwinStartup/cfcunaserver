@@ -14,6 +14,7 @@ const faire = async (req, res, next) => {
         diplome:req.body.diplome,
         tel:req.body.tel,
         whatsapp:req.body.whatsapp,
+        decisionType:'en cours'
       }).save()
         .then((doc) =>
           res.json({

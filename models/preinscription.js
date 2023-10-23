@@ -5,6 +5,9 @@ var preinscriptionSchema = new Schema({
   nom: {
     type: String,
   },
+  prenoms: {
+    type: String,
+  },
   filiere: {
     type: String,
   },
