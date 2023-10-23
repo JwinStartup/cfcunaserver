@@ -15,7 +15,7 @@ const faire = async (req, res, next) => {
         diplome:req.body.diplome,
         tel:req.body.tel,
         whatsapp:req.body.whatsapp,
-        decisionType:'en cours'
+        decisionType:'Encours'
       }).save()
         .then((doc) =>
           res.json({resultat:"REUISSI"})
@@ -28,7 +28,7 @@ const faire = async (req, res, next) => {
 const lister = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await Preinscription.find();
+    const liste = await Preinscription.find({decisionType:'Encours'});
     console.log(liste);
     res.json(liste);
   } catch (error) {
