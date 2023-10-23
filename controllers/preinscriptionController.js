@@ -9,6 +9,7 @@ const faire = async (req, res, next) => {
         nom: req.body.nom,
         numero: numero,
         prenoms: req.body.prenoms,
+        email: req.body.email,
         annee: req.body.annee,
         filiere:req.body.filiere,
         diplome:req.body.diplome,
@@ -17,9 +18,7 @@ const faire = async (req, res, next) => {
         decisionType:'en cours'
       }).save()
         .then((doc) =>
-          res.json({
-            id:doc.numero
-          })
+          res.json({resultat:"REUISSI"})
         );
   } catch (error) {
     return res.json(error);
