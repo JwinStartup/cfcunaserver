@@ -136,10 +136,10 @@ const preinscritListeVdaf = async (req, res, next) => {
 const countSid = async (req, res, next) => {
   try {
     console.log("hello");
-    const total = await Preinscription.find({filiere:'SID'}).count();
-    const licence3 = await Preinscription.find({filier:'SID',diplome:'Licence3'}).count();
-    const master1 = await Preinscription.find({filier:'SID',diplome:'Master1'}).count();
-    const master2 = await Preinscription.find({filier:'SID',diplome:'Master2'}).count();
+    const total = await Preinscription.find({filiere:'SID'}).countDocuments();
+    const licence3 = await Preinscription.find({filier:'SID',diplome:'Licence3'}).countDocuments();
+    const master1 = await Preinscription.find({filier:'SID',diplome:'Master1'}).countDocuments();
+    const master2 = await Preinscription.find({filier:'SID',diplome:'Master2'}).countDocuments();
     res.json({
       total:total,
        licence3:licence3,
@@ -152,10 +152,10 @@ const countSid = async (req, res, next) => {
 const countQse = async (req, res, next) => {
   try {
     console.log("hello");
-    const total = await Preinscription.find({filiere:'QSE'}).count();
-    const licence3 = await Preinscription.find({filier:'QSE',diplome:'Licence3'}).count();
-    const master1 = await Preinscription.find({filier:'QSE',diplome:'Master1'}).count();
-    const master2 = await Preinscription.find({filier:'QSE',diplome:'Master2'}).count();
+    const total = await Preinscription.find({filiere:'QSE'}).countDocuments();
+    const licence3 = await Preinscription.find({filier:'QSE',diplome:'Licence3'}).countDocuments();
+    const master1 = await Preinscription.find({filier:'QSE',diplome:'Master1'}).countDocuments();
+    const master2 = await Preinscription.find({filier:'QSE',diplome:'Master2'}).countDocuments();
     res.json({
       total:total,
        licence3:licence3,
@@ -169,10 +169,10 @@ const countQse = async (req, res, next) => {
 const countVdaf = async (req, res, next) => {
   try {
     console.log("hello");
-    const total = await Preinscription.find({filiere:'VDAF'}).count();
-    const licence3 = await Preinscription.find({filier:'VDAF',diplome:'Licence3'}).count();
-    const master1 = await Preinscription.find({filier:'VDAF',diplome:'Master1'}).count();
-    const master2 = await Preinscription.find({filier:'VDAF',diplome:'Master2'}).count();
+    const total = await Preinscription.find({filiere:'VDAF'}).countDocuments();
+    const licence3 = await Preinscription.find({filier:'VDAF',diplome:'Licence3'}).countDocuments();
+    const master1 = await Preinscription.find({filier:'VDAF',diplome:'Master1'}).countDocuments();
+    const master2 = await Preinscription.find({filier:'VDAF',diplome:'Master2'}).countDocuments();
     res.json({
       total:total,
        licence3:licence3,
