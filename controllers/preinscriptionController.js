@@ -29,51 +29,159 @@ const lister = async (req, res, next) => {
   try {
     console.log("hello");
     const liste = await Preinscription.find({decisionType:'Encours'});
-    console.log(liste);
     res.json(liste);
   } catch (error) {
     res.json(error);
   }
 };
-/*
-const connexion = async (req, res, next) => {
+const listerTroisPremier = async (req, res, next) => {
   try {
-    const localStorage = new LocalStorage("./scratch");
-    const user = await User.findOne({ email: req.body.email });
-
-    if (!user) {
-      throw new Error("Email incorrect");
-    }
-
-    const estEgal = await bcrypt.compare(req.body.password, user.password);
-    if (!estEgal) {
-      throw new Error("Mot de passe incorrect");
-    }
-    const token = jwt.sign(
-      { userID: user.id, email: user.email },
-      "ebeAPPserver",
-      {
-        expiresIn: "1y",
-      }
-    );
-    localStorage.setItem("TOKEN", token);
-    await user.save().then((doc) => {
-      res.json({ userID: doc._id, token: token, tokenExpiration: 1 });
+    console.log("hello");
+    const liste = await Preinscription.find({decisionType:'Encours'}).sort(-1).limit(3);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const sid_premier = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({decisionType:'Encours',filiere:'SID'}).sort(-1).limit(1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const qse_premier = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({decisionType:'Encours',filiere:'QSE'}).sort(-1).limit(1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const vdaf_premier = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({decisionType:'Encours',filiere:'VDAF'}).sort(-1).limit(1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const decision_traite_sid = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({filier:'SID',decisionType:{$ne:'Encours'}}).sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const decision_traite_vdaf = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({filier:'VDAF',decisionType:{$ne:'Encours'}}).sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const decision_traite_qse = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({filier:'QSE',decisionType:{$ne:'Encours'}}).sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const preinscritListe = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find().sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const preinscritListeSid = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({filiere:'SID'}).sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const preinscritListeQse = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({filiere:'QSE'}).sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const preinscritListeVdaf = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const liste = await Preinscription.find({filiere:'VDAF'}).sort(-1);
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
+const countSid = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const total = await Preinscription.find({filiere:'SID'}).count();
+    const licence3 = await Preinscription.find({filier:'SID',diplome:'Licence3'}).count();
+    const master1 = await Preinscription.find({filier:'SID',diplome:'Master1'}).count();
+    const master2 = await Preinscription.find({filier:'SID',diplome:'Master2'}).count();
+    res.json({
+      total:total,
+       licence3:licence3,
+       master2:master2,
+       master1:master1
     });
   } catch (error) {
-    console.log(err);
-    res.status(404).json(err);
-  }
-};
-
-const userById = async (req, res, next) => {
+    res.json(error);
+  }  }
+const countQse = async (req, res, next) => {
   try {
-    const moi = await User.findById(req.params.id);
-    console.log(moi);
-    res.json(moi);
+    console.log("hello");
+    const total = await Preinscription.find({filiere:'QSE'}).count();
+    const licence3 = await Preinscription.find({filier:'QSE',diplome:'Licence3'}).count();
+    const master1 = await Preinscription.find({filier:'QSE',diplome:'Master1'}).count();
+    const master2 = await Preinscription.find({filier:'QSE',diplome:'Master2'}).count();
+    res.json({
+      total:total,
+       licence3:licence3,
+       master2:master2,
+       master1:master1
+    });
   } catch (error) {
-    console.log(error);
+    res.json(error);
   }
-};
-*/
-module.exports = { faire,lister };
+ }
+const countVdaf = async (req, res, next) => {
+  try {
+    console.log("hello");
+    const total = await Preinscription.find({filiere:'VDAF'}).count();
+    const licence3 = await Preinscription.find({filier:'VDAF',diplome:'Licence3'}).count();
+    const master1 = await Preinscription.find({filier:'VDAF',diplome:'Master1'}).count();
+    const master2 = await Preinscription.find({filier:'VDAF',diplome:'Master2'}).count();
+    res.json({
+      total:total,
+       licence3:licence3,
+       master2:master2,
+       master1:master1
+    });
+  } catch (error) {
+    res.json(error);
+  }
+}; 
+
+module.exports = {countVdaf,countSid,countQse,faire,lister,preinscritListeVdaf,preinscritListeQse,preinscritListeSid,preinscritListe,decision_traite_qse,decision_traite_vdaf,decision_traite_sid,vdaf_premier,qse_premier,listerTroisPremier,sid_premier }
