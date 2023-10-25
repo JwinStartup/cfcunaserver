@@ -36,7 +36,6 @@ const lister = async (req, res, next) => {
 };
 const listerTroisPremier = async (req, res, next) => {
   try {
-    console.log("hello");
     const liste = await Preinscription.find({decisionType:'Encours'}).sort(-1).limit(3);
     console.log(liste)
     res.json(liste);
