@@ -18,6 +18,9 @@ var userSchema = new Schema({
     type: String,
   },
 
+},
+{
+  timestamps: true
 });
 
 module.exports = mongoose.model("User", userSchema);

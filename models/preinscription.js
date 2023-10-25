@@ -38,6 +38,9 @@ var preinscriptionSchema = new Schema({
   whatsapp: {
     type: String,
   },
-});
+  
+},{
+    timestamps: true
+  });
 
 module.exports = mongoose.model("Preinscription", preinscriptionSchema);
