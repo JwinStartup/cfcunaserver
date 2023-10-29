@@ -9,7 +9,7 @@ const {
     preinscritListeQse,
     preinscritListeSid,
     preinscritListe,
-    decision_traite_qse,
+    decision_traite,
     decision_traite_vdaf,
     decision_traite_sid,
     vdaf_premier,
@@ -27,7 +27,7 @@ router.get("/preinscritListeVdaf", preinscritListeVdaf);
 router.get("/preinscritListeQse", preinscritListeQse);
 router.get("/preinscritListeSid", preinscritListeSid);
 router.get("/preinscritListe", preinscritListe);
-router.get("/decision_traite_qse", decision_traite_qse);
+router.get("/decision_traite", decision_traite);
 router.get("/decision_traite_vdaf", decision_traite_vdaf);
 router.get("/decision_traite_sid", decision_traite_sid);
 router.get("/vdaf_premier", vdaf_premier);
