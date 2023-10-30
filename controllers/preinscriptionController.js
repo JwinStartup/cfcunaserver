@@ -1,5 +1,5 @@
 const Preinscription = require("../models/preinscription.js");
-const { default: Upload } = require("../upload.js");
+const { Upload } = require("../upload.js");
 const LocalStorage = require("node-localstorage").LocalStorage;
 const faire = async (req, res, next) => {
   try {
