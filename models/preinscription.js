@@ -35,7 +35,13 @@ var preinscriptionSchema = new Schema({
   decisionObservation: {
     type: String,
   },
-  whatsapp: {
+  fileCv: {
+    type: String,
+  },
+  fileDernierBac: {
+    type: String,
+  },
+  fileBac: {
     type: String,
   },
   
