@@ -20,8 +20,9 @@ const {
     countSid,
     countQse,
 } = require("../controllers/preinscriptionController.js");
+const { multerUploads } = require("../multer.js");
 
-router.post("/faire", faire);
+router.post("/faire",multerUploads, faire);
 router.get("/lister", lister);
 router.get("/preinscritListeVdaf", preinscritListeVdaf);
 router.get("/preinscritListeQse", preinscritListeQse);

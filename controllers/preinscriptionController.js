@@ -1,5 +1,4 @@
 const Preinscription = require("../models/preinscription.js");
-const { Upload } = require("../upload.js");
 const LocalStorage = require("node-localstorage").LocalStorage;
 const faire = async (req, res, next) => {
   try {
@@ -15,9 +14,9 @@ const faire = async (req, res, next) => {
         filiere:req.body.filiere,
         diplome:req.body.diplome,
         tel:req.body.tel,
-        fileBac:Upload(req.body.fileBac),
-        fileDernierBac:Upload(req.body.fileDernierBac),
-        fileCv:Upload(req.body.fileCv),
+        fileBac:req.body.fileBac,
+        fileDernierBac:req.body.fileDernierBac,
+        fileCv:req.body.fileCv,
         whatsapp:req.body.whatsapp,
         decisionType:'Encours'
       }).save()

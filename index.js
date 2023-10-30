@@ -5,10 +5,12 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const users = require("./routes/userRoutes.js");
 const preinscription = require("./routes/preinscriptionRoutes.js");
+const { cloudinaryConfig } = require("./cloudinaryConfig.js");
 
 const port = 8080;
 const app = express();
-
+app.use(express.static(resolve(__dirname, 'src/public')));
+app.use('*', cloudinaryConfig);
 app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
