@@ -19,10 +19,12 @@ const {
     countVdaf,
     countSid,
     countQse,
+    modifie
 } = require("../controllers/preinscriptionController.js");
 
 router.post("/faire", faire);
 router.get("/lister", lister);
+router.post("/modifie", modifie);
 router.get("/preinscritListeVdaf", preinscritListeVdaf);
 router.get("/preinscritListeQse", preinscritListeQse);
 router.get("/preinscritListeSid", preinscritListeSid);

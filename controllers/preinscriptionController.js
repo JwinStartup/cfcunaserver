@@ -187,5 +187,9 @@ const countVdaf = async (req, res, next) => {
     res.json(error);
   }
 }; 
+const modifie=async(req,res,next)=>{
+  const modifie = await Preinscription.findByIdAndUpdate(req.body.pre,{decisionType:req.body.decisionType}).save()
+  res.json({message:"modifié"})
+}
 
-module.exports = {countVdaf,countSid,countQse,faire,lister,preinscritListeVdaf,preinscritListeQse,preinscritListeSid,preinscritListe,decision_traite,decision_traite_vdaf,decision_traite_sid,vdaf_premier,qse_premier,listerTroisPremier,sid_premier }
+module.exports = {modifie,countVdaf,countSid,countQse,faire,lister,preinscritListeVdaf,preinscritListeQse,preinscritListeSid,preinscritListe,decision_traite,decision_traite_vdaf,decision_traite_sid,vdaf_premier,qse_premier,listerTroisPremier,sid_premier }
