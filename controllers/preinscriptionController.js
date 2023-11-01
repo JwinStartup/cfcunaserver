@@ -188,7 +188,7 @@ const countVdaf = async (req, res, next) => {
   }
 }; 
 const modifie=async(req,res,next)=>{
-  const modifie = await Preinscription.findByIdAndUpdate(req.body.pre,{decisionType:req.body.decisionType}).save()
+  const modifie = await Preinscription.findByIdAndUpdate(req.body.pre,{decisionType:req.body.decisionType})
   res.json({message:"modifié"})
 }
 
