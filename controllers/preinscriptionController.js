@@ -177,7 +177,7 @@ const countQse = async (req, res, next) => {
 const countVdaf = async (req, res, next) => {
   try {
     console.log("hello");
-    const total = await Preinscription.find({filiere:'VDAF'}).length;
+    const total = await Preinscription.find({filiere:'VDAF'}).count();
     const licence2 = await Preinscription.find({filiere:"VDAF",diplome:"Licence2"}).count();
     const licence3 = await Preinscription.find({filiere:"VDAF",diplome:"Licence3"}).count();
     const master1 = await Preinscription.find({filiere:"VDAF",diplome:"Master1"}).count();
@@ -187,7 +187,8 @@ const countVdaf = async (req, res, next) => {
        licence2:licence2,
        licence3:licence3,
        master2:master2,
-       master1:master1
+       master1:master1,
+       total:total
     });
   } catch (error) {
     res.json(error);
