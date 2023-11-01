@@ -156,10 +156,10 @@ const countSid = async (req, res, next) => {
 const countQse = async (req, res, next) => {
   try {
     console.log("hello");
-    const total = await Preinscription.find({filiere:'QSE'}).length;
-    const licence3 = await Preinscription.find({filier:'QSE',diplome:'Licence3'}).length;
-    const master1 = await Preinscription.find({filier:'QSE',diplome:'Master1'}).length;
-    const master2 = await Preinscription.find({filier:'QSE',diplome:'Master2'}).length;
+    const total = await Preinscription.find({filiere:'QSE'}).count();
+    const licence3 = await Preinscription.find({filier:'QSE',diplome:'Licence3'}).count();
+    const master1 = await Preinscription.find({filier:'QSE',diplome:'Master1'}).count();
+    const master2 = await Preinscription.find({filier:'QSE',diplome:'Master2'}).count();
     res.json({
       total:total,
        licence3:licence3,
@@ -188,7 +188,7 @@ const countVdaf = async (req, res, next) => {
   }
 }; 
 const modifie=async(req,res,next)=>{
-  const modifie = await Preinscription.findByIdAndUpdate(req.body.pre,{decisionType:req.body.decisionType})
+  const modifie = await Preinscription.findByIdAndUpdate(req.body.pre,{decisionType:req.body.decisionType,diplome:req.body.diplome})
   res.json({message:"modifié"})
 }
 
