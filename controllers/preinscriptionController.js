@@ -157,7 +157,7 @@ const countQse = async (req, res, next) => {
   try {
     console.log("hello");
     const total = await Preinscription.find({filiere:'QSE'}).count();
-    const licence3 = await Preinscription.find({filier:'QSE',diplome:'Licence3'}).count();
+    const licence3 = await Preinscription.find({filiere:"QSE",diplome:"Licence3"}).count();
     const master1 = await Preinscription.find({filier:'QSE',diplome:'Master1'}).count();
     const master2 = await Preinscription.find({filier:'QSE',diplome:'Master2'}).count();
     res.json({
