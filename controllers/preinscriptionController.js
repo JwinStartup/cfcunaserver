@@ -104,7 +104,7 @@ const decision_traite = async (req, res, next) => {
 const preinscritListe = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await Preinscription.find().sort({createdAt:-1});
+    const liste = await Preinscription.find().sort({updatedAt:-1});
     res.json(liste);
   } catch (error) {
     res.json(error);
