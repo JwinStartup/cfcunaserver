@@ -11,6 +11,7 @@ const faire = async (req, res, next) => {
         prenoms: req.body.prenoms,
         email: req.body.email,
         annee: req.body.annee,
+        image: req.body.image,
         filiere:req.body.filiere,
         diplome:req.body.diplome,
         tel:req.body.tel,

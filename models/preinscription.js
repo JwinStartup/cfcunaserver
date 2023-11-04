@@ -14,7 +14,11 @@ var preinscriptionSchema = new Schema({
   numero: {
     type: String,
   },
+
   email: {
+    type: String,
+  },
+  image: {
     type: String,
   },
   tel: {
