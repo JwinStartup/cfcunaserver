@@ -13,7 +13,7 @@ const {
 router.post("/inscription", inscription);
 router.get("/lister", lister);
 router.post("/connexion", connexion);
-router.get("/modifierRole/:id", modifierRole);
+router.post("/modifierRole", modifierRole);
 router.get("/supprime/:id", supprime);
 
 module.exports = {

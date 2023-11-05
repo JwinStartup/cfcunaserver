@@ -71,7 +71,9 @@ const connexion = async (req, res, next) => {
 
 const modifierRole = async (req, res, next) => {
   try {
-    const moi = await User.findByIdAndUpdate(req.params.id,{role:req.body.role});
+    console.log(req.body)
+    const moi = await User.findByIdAndUpdate(req.body.id,{role:req.body.role});
+    console.log(moi)
     res.json({message:"modifie"});
   } catch (error) {
     console.log(error);
