@@ -21,15 +21,11 @@ const inscription = async (req, res, next) => {
       })
         .save()
         .then((doc) =>
-          res.json({
-            email: doc.email,
-            password: doc.password,
-            nom: doc.nom,
-          })
+          res.json({message:"success"})
         );
     }
   } catch (error) {
-    return res.json(error);
+    return res.json({message:error});
   }
 };
 
@@ -74,14 +70,21 @@ const connexion = async (req, res, next) => {
   }
 };
 
-const userById = async (req, res, next) => {
+const modifierRole = async (req, res, next) => {
   try {
-    const moi = await User.findById(req.params.id);
-    console.log(moi);
-    res.json(moi);
+    const moi = await User.findByIdAndUpdate(req.params.id,{role:req.body.role});
+    res.json({message:"modifie"});
+  } catch (error) {
+    console.log(error);
+  }
+};
+const supprime = async (req, res, next) => {
+  try {
+    const moi = await User.findByIdAndDelete(req.params.id);
+    res.json({message:"supprimé"});
   } catch (error) {
     console.log(error);
   }
 };
 
-module.exports = { inscription, connexion, userById, lister };
+module.exports = { inscription, connexion, modifierRole, lister ,supprime};

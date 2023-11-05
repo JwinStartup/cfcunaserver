@@ -5,14 +5,17 @@ const router = express.Router();
 const {
   inscription,
   connexion,
-  userById,
+  modifierRole,
   lister,
+  modifierRole,
+  supprime,
 } = require("../controllers/userController.js");
 
 router.post("/inscription", inscription);
 router.get("/lister", lister);
 router.post("/connexion", connexion);
-router.get("/userById/:id", userById);
+router.get("/modifierRole/:id", modifierRole);
+router.get("/supprime/:id", supprime);
 
 module.exports = {
   routes: router,
