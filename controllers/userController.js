@@ -15,7 +15,6 @@ const inscription = async (req, res, next) => {
 
       const user = await new User({
         nom: req.body.nom,
-        email: req.body.email,
         role:req.body.role,
         password: hashedpassword,
       })
@@ -43,15 +42,15 @@ const lister = async (req, res, next) => {
 const connexion = async (req, res, next) => {
   try {
     const localStorage = new LocalStorage("./scratch");
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({ nom: req.body.nom });
 
     if (!user) {
-      throw new Error("Email incorrect");
+      res.status(400).json({message:"Email incorrect"});
     }
 
     const estEgal = await bcrypt.compare(req.body.password, user.password);
     if (!estEgal) {
-      throw new Error("Mot de passe incorrect");
+      res.status(400).json({message:"Mot de passe incorrect"});
     }
     const token = jwt.sign(
       { userID: user.id, email: user.email },
