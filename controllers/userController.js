@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const LocalStorage = require("node-localstorage").LocalStorage;
 const inscription = async (req, res, next) => {
   try {
-    const userExist = await User.findOne({ email: req.body.email });
+    const userExist = await User.findOne({ nom: req.body.nom });
 
     if (userExist) {
       res.status(500).send({
