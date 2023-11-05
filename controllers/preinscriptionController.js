@@ -66,6 +66,14 @@ const nsa_premier = async (req, res, next) => {
     res.json(error);
   }
 };
+const voirById = async (req, res, next) => {
+  try {
+    const liste = await Preinscription.findOne({numero:req.params.numero})
+    res.json(liste);
+  } catch (error) {
+    res.json(error);
+  }
+};
 const qse_premier = async (req, res, next) => {
   try {
     console.log("hello");
@@ -251,6 +259,7 @@ module.exports = {
   countSid,
   countQse,
   countNsa,
+  voirById,
   faire,
   lister,
   preinscritListeVdaf,

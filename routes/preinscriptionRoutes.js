@@ -23,7 +23,8 @@ const {
     preinscritListeNsa,
     decision_traite_nsa,
     nsa_premier,
-    countNsa
+    countNsa,
+    voirById
 } = require("../controllers/preinscriptionController.js");
 
 router.post("/faire", faire);
@@ -47,6 +48,7 @@ router.get("/countVdaf", countVdaf);
 router.get("/countSid", countSid);
 router.get("/countQse", countQse);
 router.get("/countNsa", countNsa);
+router.get("/voirById/:numero", voirById);
 //router.post("/connexion", connexion);
 //router.get("/userById/:id", userById);
 
