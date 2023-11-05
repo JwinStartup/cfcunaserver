@@ -87,7 +87,7 @@ const vdaf_premier = async (req, res, next) => {
 const decision_traite_sid = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await Preinscription.find({filier:'SID',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
+    const liste = await Preinscription.find({filiere:'SID',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
     res.json(liste);
   } catch (error) {
     res.json(error);
@@ -96,7 +96,7 @@ const decision_traite_sid = async (req, res, next) => {
 const decision_traite_vdaf = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await Preinscription.find({filier:'VDAF',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
+    const liste = await Preinscription.find({filiere:'VDAF',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
     res.json(liste);
   } catch (error) {
     res.json(error);
@@ -105,7 +105,7 @@ const decision_traite_vdaf = async (req, res, next) => {
 const decision_traite_nsa = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await Preinscription.find({filier:'NSA',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
+    const liste = await Preinscription.find({filiere:'NSA',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
     res.json(liste);
   } catch (error) {
     res.json(error);
