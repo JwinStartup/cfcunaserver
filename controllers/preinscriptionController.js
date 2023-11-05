@@ -1,6 +1,6 @@
 const Preinscription = require("../models/preinscription.js");
 const LocalStorage = require("node-localstorage").LocalStorage;
-const faire = async (req, res, next) => {
+const faire = async (req,res, next) => {
   try {
     const preinscLength = (await Preinscription.find()).length +1 ;
      const numero =  `${"23"+req.body.filiere+"00"+preinscLength}`
@@ -111,10 +111,10 @@ const decision_traite_nsa = async (req, res, next) => {
     res.json(error);
   }
 };
-const decision_traite = async (req, res, next) => {
+const decision_traite_qse = async (req, res, next) => {
   try {
     console.log("hello");
-    const liste = await Preinscription.find({decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
+    const liste = await Preinscription.find({filiere:'QSE',decisionType:{$ne:'Encours'}}).sort({createdAt:-1});
     res.json(liste);
   } catch (error) {
     res.json(error);
@@ -245,4 +245,25 @@ const modifie=async(req,res,next)=>{
   res.json({message:"modifié"})
 }
 
-module.exports = {modifie,countVdaf,countSid,countQse,countNsa,faire,lister,preinscritListeVdaf,preinscritListeQse,preinscritListeSid,preinscritListeNsa,preinscritListe,decision_traite,decision_traite_vdaf,decision_traite_sid,decision_traite_nsa,vdaf_premier,qse_premier,nsa_premier,listerTroisPremier,sid_premier }
+module.exports = {
+  modifie,
+  countVdaf,
+  countSid,
+  countQse,
+  countNsa,
+  faire,
+  lister,
+  preinscritListeVdaf,
+  preinscritListeQse,
+  preinscritListeSid,
+  preinscritListeNsa,
+  preinscritListe,
+  decision_traite_qse,
+  decision_traite_vdaf,
+  decision_traite_sid,
+  decision_traite_nsa,
+  vdaf_premier,
+  qse_premier,
+  nsa_premier,
+  listerTroisPremier,
+  sid_premier }
