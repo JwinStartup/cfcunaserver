@@ -45,7 +45,7 @@ const connexion = async (req, res, next) => {
     const user = await User.findOne({ nom: req.body.nom });
 
     if (!user) {
-      res.status(400).json({message:"Email incorrect"});
+      res.status(400).json({message:"nom existe déja"});
     }
 
     const estEgal = await bcrypt.compare(req.body.password, user.password);
