@@ -7,7 +7,6 @@ const {
   connexion,
   modifierRole,
   lister,
-  modifierRole,
   supprime,
 } = require("../controllers/userController.js");
 
