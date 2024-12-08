@@ -1,0 +1,21 @@
+<% if (locals.messages) { %>
+<ul class="" style="width: 100%; display: flex; justify-items: center;align-items: center; flex-direction: column;" >
+    <% Object.keys(messages).forEach((key) => { %>
+        <% messages[key].forEach(message => { %>
+            <li 
+            style= `  
+              <% if (key==="error") { %>
+               background-color:red
+              <% } %>
+                ;
+            margin: 2px; width: 70%;
+             padding: 4px;`  >
+
+                <span class="font-medium"> 
+                     <%= key %> !</span> 
+                      <%= message %>  .
+              </li>
+        <% }) %>
+    <% }) %>
+</ul> 
+<% } %>

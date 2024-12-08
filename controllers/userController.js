@@ -1,15 +1,25 @@
 const User = require("../models/user.js");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const LocalStorage = require("node-localstorage").LocalStorage;
-const inscription = async (req, res, next) => {
-  try {
-    const userExist = await User.findOne({ nom: req.body.nom });
+const {body,validationResult} = require('express-validator')
 
+const inscription = async (req, res, next) => {
+try {
+
+   const errors=  validationResult(req)
+    if(!errors.isEmpty()){
+     errors.array().forEach(error=>{
+     req.flash('error',error.msg)
+    })
+    res.render('inscription',{messages: req.flash()} )
+     return ;
+    }  
+  
+    const userExist = await User.findOne({ nom: req.body.nom });
+   
     if (userExist) {
-      res.status(500).send({
-        error: "L'email a deja étè utilisé,Veuillez utiliser un autre",
-      });
+      req.flash("error","Nom a deja étè utilisé,veuillez utiliser un autre");
+      res.redirect('/inscription')
     } else {
       const hashedpassword = await bcrypt.hash(req.body.password, 12);
 
@@ -20,49 +30,44 @@ const inscription = async (req, res, next) => {
       })
         .save()
         .then((doc) =>
-          res.json({message:"success"})
+        {
+          req.flash("success",`Votre compte a étè crée avec success`);
+          res.redirect("/connexion",)
+        }
         );
     }
   } catch (error) {
-    return res.json({message:error});
+    throw Error(error);
   }
 };
 
 const lister = async (req, res, next) => {
   try {
-    console.log("hello");
     const liste = await User.find();
-    console.log(liste);
-    res.json(liste);
+    res.render("user",{liste});
   } catch (error) {
     res.json(error);
   }
 };
 
 const connexion = async (req, res, next) => {
-  try {
-    const localStorage = new LocalStorage("./scratch");
+   try {
+    //const localStorage = new LocalStorage("./scratch");
     const user = await User.findOne({ nom: req.body.nom });
 
     if (!user) {
-      res.status(400).json({message:"nom existe déja"});
+    req.flash("errors","Ce nom d'utilisateur n'existe pas");
+      res.render('connexion')
     }
 
     const estEgal = await bcrypt.compare(req.body.password, user.password);
     if (!estEgal) {
-      res.status(400).json({message:"Mot de passe incorrect"});
+     req.flash('errors',"Mot de passe incorrect");
+     res.render('connexion')
+    }else{
+     req.flash('success',"Connexion reussi");
+      res.render('/')
     }
-    const token = jwt.sign(
-      { userID: user.id, email: user.email },
-      "ebeAPPserver",
-      {
-        expiresIn: "1y",
-      }
-    );
-    localStorage.setItem("TOKEN", token);
-    await user.save().then((doc) => {
-      res.json({ userID: doc._id, token: token, tokenExpiration: 1 });
-    });
   } catch (error) {
     console.log(err);
     res.status(404).json(err);
@@ -71,9 +76,7 @@ const connexion = async (req, res, next) => {
 
 const modifierRole = async (req, res, next) => {
   try {
-    console.log(req.body)
     const moi = await User.findByIdAndUpdate(req.body.id,{role:req.body.role});
-    console.log(moi)
     res.json({message:"modifie"});
   } catch (error) {
     console.log(error);
@@ -87,5 +90,20 @@ const supprime = async (req, res, next) => {
     console.log(error);
   }
 };
+const motdepasseoublier=async(req,res,next)=>{
+  const user = await User.findOne({ nom: req.body.nom });
 
-module.exports = { inscription, connexion, modifierRole, lister ,supprime};
+    if (!user) {
+    req.flash("errors","Ce nom d'utilisateur n'existe pas");
+      res.render('connexion')
+    }
+    const hashedpassword = await bcrypt.hash(req.body.password, 12);
+
+      user.password= await hashedpassword
+     await user.save().then(()=>{
+    req.flash("Success","Le mot de passe a étè modifié");
+
+      res.render('connexion')
+     })
+}
+module.exports = {motdepasseoublier,inscription, connexion, modifierRole, lister ,supprime};

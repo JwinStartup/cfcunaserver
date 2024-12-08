@@ -5,50 +5,85 @@ var preinscriptionSchema = new Schema({
   nom: {
     type: String,
   },
+  ufr: {
+    type: String,
+  },
   prenoms: {
     type: String,
   },
   filiere: {
     type: String,
   },
-  numero: {
-    type: String,
-  },
-
-  email: {
-    type: String,
-  },
-  image: {
-    type: String,
-  },
   tel: {
     type: String,
   },
-  annee: {
+  dateNaissance: {
     type: String,
   },
-  diplome: {
+  email: {
     type: String,
   },
-  decisionType: {
+  whatshapp: {
     type: String,
   },
-  decisionDiplome: {
+  photo: {
     type: String,
   },
-  decisionObservation: {
+  formation: {
     type: String,
   },
-  fileCv: {
+ 
+  niveau: {
     type: String,
   },
-  fileDernierBac: {
+  numero: {
     type: String,
   },
-  fileBac: {
+ 
+  diplomePiece: {
     type: String,
   },
-  
+  statut:{
+    type: String,
+  },
+  anneeUniversitaire:{
+    type: String,
+  },
+  anneeExclu:{
+    type: String,
+  },
+  lieuNaissance:{
+    type: String,
+  },
+  nationnalite:{
+    type: String,
+  },
+  numeroCarte:{
+    type: String,
+  },
+  numeroTable:{
+    type: String,
+  },
+  parcours:{
+    type: String,
+  },
+  profession:{
+    type: String,
+  },
+  serie:{
+    type: String,
+  },
+  tel:{
+    type: String,
+  },
+  ueArattraper:[{
+    type:Schema.Types.ObjectId,
+     ref:'Ue' 
+  }],
+  analyserPar:{
+     type:Schema.Types.ObjectId,
+     ref:'User'
+  }
 },{
     timestamps: true
   });

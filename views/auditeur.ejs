@@ -1,0 +1,95 @@
+<%- include ('layout/entete') %>
+
+<h1 class="font-bold w-full text-center my-4 text-2xl text-blue-500">LISTE DES AUDITEURS CFC UNA</h1>
+<div class="m-3">
+    
+    <div class="relative overflow-x-auto  sm:rounded-lg">
+        <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
+         
+            <% if (liste) { %>
+                <div class="flex w-full justify-end px-4">
+                    <a href="/preinscription/telechargerAuditeur" class="bg-blue-500 hover:bg-blue-400 text-white font-semibold py-1 px-4 rounded-xl inline-flex items-center mr-10 ">
+                   <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"> <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/> </svg>
+                   <span>Télecharger la liste </span>
+                    </a>
+                </div>
+            <% } %>
+        
+    </div>
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 ">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Numero
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Nom
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Prenoms
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Email
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    UFR
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Filière / Parcours
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Formation
+                </th>
+                <th scope="col" class="px-6 py-3">
+                </th>
+                <th scope="col" class="px-6 py-3">
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% liste.forEach((user,j) => { %>
+                <tr class=
+                "bg-white border-b  hover:bg-gray-50">
+                  
+                <td class="px-6 py-4">
+                    <div  class="font-medium text-gray-600  "> <%= j %>  </div>
+                </td>
+                <td class="px-6 py-4">
+                    <div  class="font-medium text-gray-600  "> <%= user.numero %>  </div>
+                </td>
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                         <%= user.nom %>                              </th>
+                    <td class="px-6 py-4">
+                        <div  class="font-medium text-gray-600  "> <%= user.prenoms %>  </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div  class="font-medium text-gray-600  "> <%= user.email %>  </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div href="#" class="font-medium text-gray-600  "> <%= user.ufr || "Centre de formation continue" %>  </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div href="#" class="font-medium text-gray-600  "> <%= user.filiere || user.parcours %>  </div>
+                    </td>
+                    <td class="px-6 py-4">
+                        <div  class="font-medium text-gray-600  "> <%= user.formation %>  </div>
+                    </td>
+                  
+                    <td class="px-6 py-4">
+                        <a href="/preinscription/<%= user.numero %>" class="font-medium text-blue-600 ">Voir plus</a>
+                    </td>
+                </tr>
+
+             <% }) %>
+           
+                
+        </tbody>
+    </table>
+</div>
+
+
+</div>
+
+<%- include ('layout/footer') %>

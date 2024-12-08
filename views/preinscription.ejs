@@ -1,0 +1,216 @@
+<%- include ('layout/entete') %>
+ <div class="flex items-center justify-center space-x-4 w-full">
+    <a href="/" class="bg-blue-500 hover:bg-blue-400 text-white font-semibold py-1 px-4 rounded-xl inline-flex items-center ">
+        <i class="fa-solid fa-chevron-left"></i>
+        <span>Retour</span>
+         </a>
+  <h1 class="font-bold  my-2 text-2xl text-blue-500">PREINSCRIPTIONS N° <%= userPre.numero %> </h1>
+</div>
+<div class="flex w-full justify-end px-4">
+    <a href="<%=userPre.diplomePiece %>" class="bg-blue-500 hover:bg-blue-400 text-white font-semibold py-1 px-4 rounded-xl inline-flex items-center mr-10 ">
+   <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"> <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/> </svg>
+   <span>Télecharger Diplôme ou piece</span>
+    </a>
+</div>
+
+<div class="flex flex-row justify-between w-full">
+<div >
+<div class="w-full max-w-md ml-2 mt-3  bg-white border border-gray-200 rounded-lg shadow p-3">
+    <div class="flex flex-col ">
+        <h5 class="text-2xl font-semibold leading-none text-gray-900 dark:text-white">Identification</h5>
+        <div class="space-y-1.5">
+
+            <div class="flex flex-row">
+                <img src="<%= userPre.photo %>" class="w-[100px] h-[100px] mt-2" />
+                <div className="flex flex-col pt-2 ">
+                    <div class="flex-col px-3 mt-2">
+                        <label class="text-sm font-semibold tracking-wide text-gray-700 ">Nom</label>
+                        <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.nom %></h5>
+                    </div>
+                    <div class="flex-col mt-3 px-3">
+                        <label class="text-sm font-semibold tracking-wide text-gray-700 ">Prenoms</label>
+                        <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.prenoms %></h5>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="flex flex-row py-2 space-x-3">
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Date Naissance </label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.dateNaissance %></h5>
+                </div>
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Lieu de Naissance </label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.lieuNaissance %></h5>
+                </div>
+                
+            </div>
+            <div class="flex flex-row py-2 space-x-3">
+                
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Tel</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.tel %></h5>
+                </div>
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Whatsapp</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.whatshapp %></h5>
+                </div>
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Nationalité</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.nationnalite %></h5>
+                </div>
+               
+            </div>
+            
+            <div class="flex flex-row py-2 space-x-3">
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Email</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.email %></h5>
+                </div>
+                
+            </div>
+           
+        </div>
+        
+   </div>
+   </div>
+<div class="w-full max-w-md ml-2 mt-3  bg-white border border-gray-200 rounded-lg shadow p-3">
+    <div class="flex flex-col ">
+        <h5 class="text-2xl font-semibold leading-none text-gray-900 dark:text-white">Votre parcours</h5>
+        <div class="space-y-1.5 ">
+            <div class="flex flex-row py-2 space-x-3">
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">N° de table au BAC</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.numeroTable %></h5>
+                </div>
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Serie du BAC</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.serie %></h5>
+                </div>
+            </div>
+            <div class="flex flex-row py-2 space-x-3">
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">UFR </label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.ufr %></h5>
+                </div>
+                </div>
+            <div class="flex flex-row py-2 space-x-3">
+               
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">N° de carte d'étudiant</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.numeroCarte %></h5>
+                </div>
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Parcours</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.parcours %></h5>
+                </div>
+            </div>
+        <div class="flex flex-row space-x-6">
+        <div class="flex-col p-3">
+            <label class="text-sm font-semibold tracking-wide text-gray-700 ">Année d'exclusion(Etudiant UNA)</label>
+            <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.anneeExclu %></h5>
+        </div>
+       
+        </div>
+       
+      
+        
+   </div>
+   </div>
+   </div>
+   
+</div>
+<div>
+
+   <div class="w-[700px] max-w-md ml-2 mt-3  bg-white border border-gray-200 rounded-lg shadow p-3">
+    <div class="flex flex-col ">
+        <h5 class="text-2xl font-semibold leading-none text-gray-900 dark:text-white">Formation souhaitée</h5>
+        <div class="space-y-1.5 ">
+            <div class="flex-col p-3">
+                <label class="text-sm font-semibold tracking-wide text-gray-700 ">Année universitaire</label>
+                <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.anneeUniversitaire %></h5>
+            </div>
+
+   <div class="flex flex-row py-2 space-x-14">
+    <div class="flex-col px-3">
+        <label class="text-sm font-semibold tracking-wide text-gray-700 ">Type</label>
+        <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.formation %></h5>
+    </div>
+    
+</div>
+<% if (userPre.formation=="professionnelle") { %>
+ 
+    <div class="flex flex-row py-2 space-x-14">
+     <div class="flex-col px-3">
+         <label class="text-sm font-semibold tracking-wide text-gray-700 ">Filiere</label>
+         <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.filiere %></h5>
+     </div>
+     <div class="flex-col px-3">
+         <label class="text-sm font-semibold tracking-wide text-gray-700 ">Niveau</label>
+         <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%= userPre.niveau %></h5>
+     </div>
+     
+ </div>
+<% } %>
+</div>
+</div>
+</div>
+   <div class="w-[700px] max-w-md ml-2 mt-3  bg-white border border-gray-200 rounded-lg shadow p-3">
+    <div class="flex flex-col ">
+        <h5 class="text-2xl font-semibold leading-none text-gray-900 dark:text-white">UE à rattraper</h5>
+        <div class="space-y-1.5 ">
+            <% userPre.ueArattraper.forEach((ue,j) => { %>
+                <div class="flex flex-row py-1 space-x-14">
+                <div class="flex-col px-3">
+                    <label class="text-sm font-semibold tracking-wide text-gray-700 ">Niveau</label>
+                    <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%=ue.niveau %></h5>
+                </div>
+                <div class="flex-col px-3">
+        <label class="text-sm font-semibold tracking-wide text-gray-700 ">Nom UE</label>
+        <h5 class="text-md font-semibold leading-none tracking-wider text-gray-400 dark:text-white"><%=ue.nomue %></h5>
+    </div>
+</div>
+    <% }) %>
+</div>
+</div>
+</div>
+<div class="w-full max-w-md ml-2 mt-3  bg-white border border-gray-200 rounded-lg shadow p-3">
+    <div class="flex flex-col space-y-3 mb-2">
+        <h5 class="text-2xl font-semibold leading-none text-gray-900 dark:text-white">Décision finale</h5>
+        <div class="space-y-1.5 ">
+            <h5 class="text-xl w-full text-center font-semibold leading-none text-gray-700 dark:text-white">
+               La preinscription est <span class="font-medium  <%= userPre.statut=="accepte"? "text-green-500":userPre.statut=="refuse"?"text-red-500":"text-gray-300" %> " ><%=userPre.statut %></span>
+            </h5>
+</div> 
+<% if (userPre.statut=="encours") { %>
+    <div class="flex w-full justify-center items-center space-x-9 px-5 mt-2">
+        <a  href="/preinscription/valider/<%=userPre.id %>/accepte"       class="bg-green-600 hover:bg-green-400 text-white font-semibold py-1 px-4 rounded-xl inline-flex items-center ">
+       <span>accepter</span>
+        </a>
+        <a  href="/preinscription/valider/<%=userPre.id %>/refuse"       class="bg-red-600 hover:bg-red-400 text-white font-semibold py-1 px-4 rounded-xl inline-flex items-center ">
+       <span>refuser</span>
+        </a>
+        
+    </div>
+    <% } else { %>
+
+        <div class="flex w-full justify-center items-center space-x-9 px-5 mt-2">
+    
+            <h5 class="text-sm font-semibold tracking-wide text-gray-700 ">Analysé par : <%=userPre.analyserPar.nom %>  </h5>
+        </div>
+
+<% } %> 
+
+
+</div>
+</div>
+
+
+</div>
+<div class="mr-12 mt-3  bg-white border border-gray-200 rounded-lg shadow p-0.5 ">
+      <iframe class="rounded-lg w-[380px] h-[520px]" title=' '  secure src="<%=userPre.diplomePiece.concat("#toolbar=0&view=Fit") %>"     class='w-[380px] ' ></iframe>
+</div>
+  
+</div>
+
+<%- include ('layout/footer') %>

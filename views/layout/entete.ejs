@@ -1,0 +1,57 @@
+<div>
+
+  <nav class="bg-gray-800">
+    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div class="relative flex h-16 items-center justify-between">
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+          <div class="flex flex-shrink-0 items-center">
+            <img class="h-12 w-auto" src="https://res.cloudinary.com/cfcunadoc/image/upload/v1728983577/cmpptkmjchayfxxfs3j6.png" alt="UNA logo">
+          </div>
+          <div class="">
+            <div class="flex space-x-4">
+                  <% if (locals.user) { %>
+
+                    <a href="/" class="rounded-md bg-gray-900 px-3 py-3 text-sm font-medium text-white" >
+                      Home</a>
+                      <a href="/auditeur" class="rounded-md px-3 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                        Auditeurs</a>
+          <% if (locals.user.role==='admin'||locals.user.role==='superadmin') { %>
+                      <a href="/changerMotdepasse" class="rounded-md px-3 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                     Changer mot de passe
+                        <% } %>
+                        
+                     <% if (locals.user.role==='admin'||locals.user.role==='superadmin') { %>
+                                
+                                 <a href="/user" class="rounded-md px-3 py-3 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">
+                                   Utilisateurs</a>
+                                   <% } %>
+            </div>
+                          
+              <% } %>
+        </div>
+    </div>
+     <% if (locals.user) { %>
+      
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          
+          
+          <span class="text-gray-300 font-light pr-2 border-r border-r-white"> <%= (locals.user)&& (locals.user.nom) %> - <%= (locals.user)&& (locals.user.role) %> </span>
+          <a href="/deconnexion" class="mx-1 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-700 hover:text-red-300">Déconnecter</a>
+          </div>
+          <% } else { %>
+            <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                <a href="/connexion" class="mx-1 rounded-md px-3 py-2 text-sm font-medium text-red-500 hover:bg-red-700 hover:text-red-300">Connectez-vous</a>
+                </div>
+        
+        <% } %>
+
+      </div>
+    </div>
+  
+    
+  </nav>
+
+   <%- include('./flash-message') %>
+    </div>
+
+    
