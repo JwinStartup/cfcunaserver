@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //mongodb+srv://akoujeanpaul:jupy0500908420@cluster0.fibhleg.mongodb.net/
 //mongodb://localhost:27017/CFCUNA
 mongoose
-  .connect("mongodb://jeanakoupaul:2yYHxtloY0M0KwUX@cluster0.cr5r4.mongodb.net/", {
+  .connect("mongodb+srv://jeanakoupaul:2yYHxtloY0M0KwUX@cluster0.cr5r4.mongodb.net/", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
