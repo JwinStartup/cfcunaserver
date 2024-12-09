@@ -77,15 +77,15 @@ const connexion = async (req, res, next) => {
 const modifierRole = async (req, res, next) => {
   try {
     const moi = await User.findByIdAndUpdate(req.body.id,{role:req.body.role});
-    res.json({message:"modifie"});
+    res.redirect('/');
   } catch (error) {
     console.log(error);
   }
 };
-const supprime = async (req, res, next) => {
+const supprimer = async (req, res, next) => {
   try {
-    const moi = await User.findByIdAndDelete(req.params.id);
-    res.json({message:"supprimé"});
+    const moi = await User.findByIdAndDelete(req.params.id).then(()=>{ res.redirect('/');});
+   
   } catch (error) {
     console.log(error);
   }
@@ -106,4 +106,4 @@ const motdepasseoublier=async(req,res,next)=>{
       res.render('connexion')
      })
 }
-module.exports = {motdepasseoublier,inscription, connexion, modifierRole, lister ,supprime};
+module.exports = {motdepasseoublier,inscription, connexion, modifierRole, lister ,supprimer};

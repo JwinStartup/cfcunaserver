@@ -8,7 +8,9 @@ router.get("/inscription", (req,res,next)=>{
  res.render("inscription")
 });
 
-router.post("/inscription",rolepermission, [
+router.post("/inscription",
+  rolepermission,
+   [
    body('password').trim().isLength(5).withMessage('Le mot de passe doit contenir au maximum 5 caractères'),
    body('passwordConfirme').custom((value,{req})=>{
     if(value!==req.body.password){
