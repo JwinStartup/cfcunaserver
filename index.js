@@ -23,7 +23,7 @@ app.use(session({
   cookie:{
     httpOnly:true,
     },
-    store: MongoStore.create({ mongoUrl: "mongodb://localhost:27017/CFCUNA" })
+    store: MongoStore.create({ mongoUrl: "mongodb://jupywin:jupy2025@cluster0-shard-00-00.cr5r4.mongodb.net:27017,cluster0-shard-00-01.cr5r4.mongodb.net:27017,cluster0-shard-00-02.cr5r4.mongodb.net:27017/?replicaSet=atlas-mon1bi-shard-0&ssl=true&authSource=admin" })
     }))
 
 app.use(passport.initialize())
